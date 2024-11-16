@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABS</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+   <div class="menu ancho">
+    <nav>
+        <ul>
+            <li class="pest" id="btn1">
+                <a href="#tap1">ALL ITEMS</a>
+            </li>
+            <li class="pest" id="btn2">
+                <a href="#tap2">MOBILE APP</a>
+            </li>
+            <li class="pest" id="btn3">
+                <a href="#tap3">WEB APP</a>
+            </li>
+            <li class="pest" id="btn4">
+                <a href="#tap4">CUSTOM SOFT</a>
+            </li>
+            <li class="pest" id="btn5">
+                <a href="#tap5">UX/UI</a>
+            </li>
+        </ul>
+    </nav>
+   </div>
+    <div id="cont_taps" class="ancho">
+        <article id="tap1">
+            <figure class="imga">
+                <img src="imagenes/seccion_tabs.jpg" alt="ALL ITEMS">
+            </figure>
+        </article>
+        <article id="tap2">
+            <figure class="imga">
+                <img src="imagenes/port2.png" alt="MOBILE APP">
+            </figure>
+        </article>
+        <article id="tap3">
+            <figure class="imga">
+                <img src="imagenes/port3.jpg" alt="WEB APP">
+            </figure>
+        </article>
+        <article id="tap4">
+            <figure class="imga">
+                <img src="imagenes/port6.jpg" alt="CUSTOM SOFT">
+            </figure>
+        </article>
+        <article id="tap5">
+            <figure class="imga">
+                <img src="imagenes/port7.jpg" alt="UX/UI">
+            </figure>
+        </article>
+    </div>
+
+    <!-- Función tabs -->
+    <script>
+      $(document).ready(function() {
+          // Marcar el primer botón como activo
+          $("#btn1").addClass("active");
+
+          // Ocultar todos los artículos y mostrar solo el primero
+          $("#cont_taps article").hide();
+          $("#tap1").show();
+
+          // Manejar clics en las pestañas
+          $(".pest a").click(function(event) {
+              event.preventDefault(); // Prevenir el salto al ancla
+
+              // Cambiar la pestaña activa
+              $(".pest").removeClass("active");
+              $(this).parent().addClass("active");
+
+              // Mostrar el contenido correspondiente
+              var act_tap = $(this).attr("href");
+              $("#cont_taps article").hide();
+              $(act_tap).fadeIn(); // Animación para mostrar
+          });
+      });
+    </script>
+</body>
+</html>
